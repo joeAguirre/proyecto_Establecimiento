@@ -68,10 +68,39 @@
                 <div id="mapa" style="height: 400px">
 
                 </div>
+
+                <p>Confirmar que los siguientes campos son correctos</p>
+
+                <div class="form-group">
+                    <label for="direccion">Direccion</label>
+                    <input id="direccion" name="direccion" class="form-control
+                    @error('direccion') is-invalid @enderror" type="text" placeholder="Escribe tu direccion"
+                    value={{ old('direccion') }}>
+
+                    @error('direccion')
+                        $message
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="barrio">Barrio</label>
+                    <input id="barrio" name="barrio" class="form-control
+                    @error('barrio') is-invalid @enderror" type="text" placeholder="Escribe tu barrio"
+                    value={{ old('barrio') }}>
+
+                    @error('direccion')
+                        $message
+                    @enderror
+                </div>
+
+                <input type="hidden" name="lat" value="{{ old('lat') }}">
+                <input type="hidden" name="lng" value="{{ old('lng') }}">
             </fieldset>
         </form>
 
     </div>
+
+
 @endsection
 
 @section('js')

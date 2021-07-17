@@ -19,5 +19,22 @@ if(document.querySelector('#mapa')){
                     radius: 250
                 }).addTo(mapa);
 
+                let marker;
+
+                // agregar el pin
+                marker = new L.marker([lat, lng], {
+                    draggable: true,
+                    autoPan: true
+                }).addTo(mapa);
+
+
+                //detectar movimiento del mouse
+                marker.on('moveend', function(e) {
+                    var marker = e.target;
+                    posicion = marker.getLatLng();
+                    mapa.panTo(new L.LatLng(posicion.lat, posicion.lng));
+                    console.log(posicion);
+                })
+
             });
     }
