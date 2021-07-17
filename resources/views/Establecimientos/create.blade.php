@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('css')
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+@endsection
+
+
+
 @section('content')
     <div class="container">
         <h1 class="mt-4 text-center">Este es el formulario</h1>
@@ -56,11 +64,18 @@
 
                     <p class="text-secondary mt-5 mb-3 text-center">La ubicacion es aproximada mueva el pin al lugar correcto</p>
                 </div>
+
+                <div id="mapa" style="height: 400px">
+
+                </div>
             </fieldset>
         </form>
 
-        <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur architecto odio aliquam saepe, quas possimus eius laborum modi aperiam, quae necessitatibus omnis assumenda corporis quam quod veritatis maiores, dicta vero.
-        </p>
     </div>
+@endsection
+
+@section('js')
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
 @endsection
