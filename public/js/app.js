@@ -50058,6 +50058,19 @@ if (document.querySelector('#mapa')) {
       fillOpacity: 0.5,
       radius: 250
     }).addTo(mapa);
+    var marker = L.marker([lat, lng], {
+      draggable: true,
+      autoPan: true
+    }).addTo(mapa);
+    console.log(L.esri); //detectar movimiento
+
+    marker.on('moveend', function (e) {
+      var marker = e.target;
+      var posicion = marker.getLatLng();
+      mapa.panTo(new L.LatLng(posicion.lat, posicion.lng));
+      console.log(posicion);
+      console.log(L.esri);
+    });
   });
 }
 

@@ -19,5 +19,22 @@ if(document.querySelector('#mapa')){
                     radius: 250
                 }).addTo(mapa);
 
+                var marker = L.marker([lat, lng], {
+                    draggable: true,
+                    autoPan: true
+                } ).addTo(mapa);
+
+                console.log(L.esri);
+
+                //detectar movimiento
+                marker.on('moveend', function(e){
+                    var marker = e.target;
+                    const posicion = marker.getLatLng();
+                    mapa.panTo(new L.LatLng(posicion.lat, posicion.lng));
+                   console.log(posicion);
+                   console.log(L.esri);
+                })
+
             });
+
     }

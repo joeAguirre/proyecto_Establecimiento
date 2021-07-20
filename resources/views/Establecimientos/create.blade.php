@@ -68,6 +68,34 @@
                 <div id="mapa" style="height: 400px">
 
                 </div>
+
+                <p>
+                    Confirmar que los siguientes campos son correctos
+                </p>
+
+                <div class="form-group">
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" name="direccion" id="direccion" value="{{ old('direccion') }}"
+                    placeholder="Escribe aqui la direccion" class="form-control @error('direccion') is-invalid @enderror">
+
+                    @error('direccion')
+                        {{ $message }}
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="barrio">Barrio:</label>
+                    <input type="text" name="barrio" id="barrio" value="{{ old('barrio') }}"
+                    placeholder="Escribe tu barrio" class="form-control @error('direccion') is-invalid @enderror">
+
+                    @error('barrio')
+                        {{ $message }}
+                    @enderror
+                </div>
+
+                <input type="hidden" name="lat" id="lat" value="{{ old('lat') }}">
+                <input type="hidden" name="lng" id="lng" value="{{ old('lng') }}">
+
             </fieldset>
         </form>
 
@@ -75,7 +103,11 @@
 @endsection
 
 @section('js')
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <script src="https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js"
+        integrity="sha512-myckXhaJsP7Q7MZva03Tfme/MSF5a6HC2xryjAM4FxPLHGqlh5VALCbywHnzs2uPoF/4G/QVXyYDDSkp5nPfig=="
+        crossorigin=""></script>
 @endsection
